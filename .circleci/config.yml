@@ -1,9 +1,10 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@2.3.0
+
 jobs:
   build:
-    machine:
-      resource_class: gpu.nvidia.small
-      image: ubuntu-1604-cuda-10.1:201909-23
+    executor: win/gpu-nvidia
     steps:
-      - run: nvidia-smi
+      - run: '&"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"'
